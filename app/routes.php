@@ -16,7 +16,7 @@ Route::get('/', function() {
 	return View::make('index');
 });
 
-Route::post('login', array('uses'=>''));
+
 
 //API
 Route::group(array('prefix'=>'api'), function() {
@@ -26,7 +26,7 @@ Route::group(array('prefix'=>'api'), function() {
 
 //Catch-all
 App::missing(function($exception) {
-	return View::make('homepage');
+	return View::make('index');
 });
 
 
