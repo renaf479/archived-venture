@@ -1,14 +1,18 @@
 @font-face {
-	font-family: 'Roboto';
-	src: url('files/fonts/RobotoCondensed-Regular.ttf');
+  font-family: 'Roboto';
+  src: url('files/fonts/RobotoCondensed-Regular.ttf');
 }
 
 body {
-	margin: 0;
-	font-family: 'Roboto', sans-serif;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
-h1, h2, h3, h4, h5 {
-	margin: 0;
-	padding: 0;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding: 0;
 }
