@@ -1,17 +1,31 @@
 ventureApp.config(function($stateProvider, $urlRouterProvider) {
     
-    $urlRouterProvider
-    .otherwise('/home');
+    $urlRouterProvider.otherwise('/');
     
     $stateProvider
     	//Homepage
         .state('home', {
-            url: '/home',
-            templateUrl: 'views/homepage.html'
+            url: 			'/',
+            templateUrl: 	'views/homepage.html'
         })
-        //REST API
-        .state('rest', {
-	        url: '/rest'
+        .state('admin', {
+	        url:			'/',
+	        templateUrl:	'views/admin.html'
         })
-        
 });
+
+/*
+
+console.log(Authenticate.check());
+
+ventureApp.config(function($stateProvider, $urlRouterProvider) {
+	$urlRouterProvider.otherwise('/');
+
+	$stateProvider
+		.state('homepage', {
+			url: 			'/home',
+			templateUrl:	'views/homepage.html',
+			controller:		'homepageController'
+		})
+});
+*/

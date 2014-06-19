@@ -12,7 +12,6 @@ class TemplateController extends \BaseController {
 		return Response::json(Template::get());
 	}
 
-
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -45,5 +44,12 @@ class TemplateController extends \BaseController {
 		return Response::json(array('success'=>true));
 	}
 
-
+	public function getIndex() {
+		$id = Input::get('id');
+		return Template::find($id);
+	}
+	
+	public function getAll() {
+	    return Template::all();
+	}
 }

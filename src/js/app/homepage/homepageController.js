@@ -1,6 +1,10 @@
-/*
-ventureApp.controller('ventureController', function($scope, $sanitize, $state, Authenticate) {
-	
+ventureApp.controller('homepageController', function($scope, $sanitize, $state, Authenticate) {
+
+	//Redirect to admin if logged in
+	if(sessionStorage.authenticated) {
+		$state.go('admin');
+	}
+
 	$scope.login = {};
 	
 	$scope.loginPost = function() {
@@ -8,22 +12,10 @@ ventureApp.controller('ventureController', function($scope, $sanitize, $state, A
 			'email': 	$sanitize($scope.login.email),
 			'password':	$sanitize($scope.login.password)
 		}, function() {
-			$scope.flash = '';//WHY IS THIS NEEDED?
-			$state.transitionTo('admin');
+			$state.go('admin');
 			//$location.path('/admin');//Needs to be changed with state
 		}, function(response) {
 			$scope.flash = response.data.flash
 		});
 	}
-	
-	Authenticate.check();
 });
-*/
-
-/*
-var ventureCtrl = function($scope) {
-	
-}
-
-ventureCtrl.$inject		= ['$scope'];
-*/

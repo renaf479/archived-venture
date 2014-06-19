@@ -5,7 +5,7 @@ ventureApp.directive('globalHeader', function($window) {
 		transclude: true,
 		templateUrl: 'views/partials/global-header.html',
 		link: function(scope, element, attr) {
-			console.log(angular.element($window));
+			//console.log(angular.element($window));
 		}
 	}
 });

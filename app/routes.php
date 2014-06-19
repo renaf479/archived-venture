@@ -11,10 +11,25 @@
 |
 */
 
+
+Route::controller('users', 'UsersController');
+
+
+
 //Homepage
 Route::get('/', function() {
+	//print_r(Auth::check());
 	return View::make('index');
 });
+
+//Authentication
+Route::group(array('prefix'=>'service'), function() {
+	Route::resource('authenticate', 'AuthenticationController');
+	Route::resource('authenticate/login', 'AuthenticationController@login');
+});
+
+
+
 
 
 
