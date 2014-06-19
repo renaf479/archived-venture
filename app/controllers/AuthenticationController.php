@@ -55,6 +55,16 @@ class AuthenticationController extends \BaseController {
 		}
 	}
 
+	/**
+	* Logs out an user
+	*/
+	public function logout() {
+		Auth::logout();
+		return Response::json([
+			'test'=>'testing'
+		],
+		200);
+	}
 
 	/**
 	 * Display the specified resource.

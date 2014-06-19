@@ -26,6 +26,7 @@ Route::get('/', function() {
 Route::group(array('prefix'=>'service'), function() {
 	Route::resource('authenticate', 'AuthenticationController');
 	Route::resource('authenticate/login', 'AuthenticationController@login');
+	Route::resource('authenticate/logout', 'AuthenticationController@logout');
 });
 
 

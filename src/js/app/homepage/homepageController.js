@@ -1,7 +1,7 @@
 ventureApp.controller('homepageController', function($scope, $sanitize, $state, Authenticate) {
 
 	//Redirect to admin if logged in
-	if(sessionStorage.authenticated) {
+	if(sessionStorage.authenticated === 'true') {
 		$state.go('admin');
 	}
 

@@ -1,5 +1,14 @@
 <header id="global-header" ui-scrollfix>
 	<div class="container">
-		<h1>Venture</h1>
+		<div id="header-left" data-ng-show="user.authenticated">
+			<button>Home</button>
+		</div>
+		<a href="#" id="header-logo">Venture</a>
+		<div id="header-right" data-ng-show="user.authenticated">
+			<form id="header-search">
+				<input type="text" placeholder="Search">
+			</form>
+			<button data-ng-click="logout()">Logout</button>
+		</div>
 	</div>
 </header>

@@ -1,4 +1,28 @@
+ventureApp.controller('ventureCtrl', function($scope, $state, Authenticate) {
+	$scope.logout = function() {
+		Authenticate.logout().then(function(response) {
+			$state.go('home');
+		});
+	}	
+});
+
 /*
+
+	$scope.loginPost = function() {
+		Authenticate.login({
+			'email': 	$sanitize($scope.login.email),
+			'password':	$sanitize($scope.login.password)
+		}, function() {
+			$state.go('admin');
+			//$location.path('/admin');//Needs to be changed with state
+		}, function(response) {
+			$scope.flash = response.data.flash
+		});
+	}
+
+
+
+
 ventureApp.controller('ventureController', function($scope, $sanitize, $state, Authenticate) {
 	
 	$scope.login = {};
