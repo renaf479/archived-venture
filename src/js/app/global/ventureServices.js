@@ -2,8 +2,15 @@ angular.module('ventureApp')
 	.factory('Authenticate', function($http, $rootScope, $cookieStore) {
 		return {
 			login: function(user, success, error) {
-				$http.post('/service/authenticate/login', user).success(function(user) {
+				return $http.post('/service/authenticate/login', user).success(function(user) {
 					sessionStorage.authenticated = 'true';
+					
+					$rootScope.user = {
+						user: user,
+						authenticated: true
+					}
+					
+					//$rootScope.user.authenticated = sessionStorage.authenticated = 'true';
 				}).error(error);
 			},
 			logout: function() {
