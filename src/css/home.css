@@ -1,4 +1,13 @@
 #home {
-	height: 2000px;
-	display: block;
+	position: relative;
+}
+
+#login {
+	position: absolute;
+	outline: 1px solid #000;
+	width: 600px;
+	height: 300px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }

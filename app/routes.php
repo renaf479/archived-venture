@@ -12,7 +12,7 @@
 */
 
 
-Route::controller('users', 'UsersController');
+//Route::controller('users', 'UsersController');
 
 
 
@@ -35,10 +35,18 @@ Route::group(array('prefix'=>'service'), function() {
 
 
 //API
+/*
+Route::get('profile', array('before' => 'auth', function()
+{
+    // Only authenticated users may enter...
+}));
+
+
 Route::group(array('prefix'=>'api'), function() {
 	Route::resource('templates', 'TemplateController', 
 		array('only'=>array('index', 'store', 'destroy')));
 });
+*/
 
 //Catch-all
 App::missing(function($exception) {
@@ -50,31 +58,5 @@ App::missing(function($exception) {
 Route::get('/authtest', array('before' => 'auth.basic', function() {
     return View::make('hello');
 }));
-
-
-// Route group for API versioning
-Route::group(array('prefix' => 'api/a/', 'before' => 'auth.basic'), function() 
-{
-    Route::resource('template', 'TemplateController');
-});
-
-
 */
 
-
-/*
-Route::get('login', 'SessionsController@create');
-Route::get('logout', 'SessionsController@destroy');
-
-Route::resource('sessions', 'SessionsController');
-
-Route::get('/', function() {
-	
-});
-
-Route::get('/admin', function() {
-	return 'admin';	
-});
-
-*/
-//Route::get('/', 'PagesController@home');

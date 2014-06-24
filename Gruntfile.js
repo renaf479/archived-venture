@@ -45,6 +45,26 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		/** Combines and minifes Angular templates */
+	    ngtemplates: {
+			ventureApp: {
+				cwd:		'public/',
+				src:        'views/**/*.html',
+				dest:       'src/js/app/global/ventureTemplates.js',
+				options: {
+					htmlmin: {
+						collapseBooleanAttributes:      true,
+						collapseWhitespace:             true,
+						removeAttributeQuotes:          true,
+						removeComments:                 true,
+						removeEmptyAttributes:          true,
+						removeRedundantAttributes:      true,
+						removeScriptTypeAttributes:     true,
+						removeStyleLinkTypeAttributes:  true
+					}
+				}
+			}
+		},
 		watch: {
 			stylesheets: {
 				files: 'src/**/*.css',
@@ -53,6 +73,10 @@ module.exports = function(grunt) {
 			scripts: {
 				files: 'src/**/*.js',
 				tasks: ['scripts']
+			},
+			templates: {
+				files: ['public/views/**/*.html'],
+				tasks: ['templates']
 			},
 			copy: {
 				files: ['src/**'],
@@ -78,10 +102,16 @@ module.exports = function(grunt) {
 		'Compiles the JavaScript files.', 
 		['uglify']
 	);
+
+	grunt.registerTask(
+		'templates',
+		'Combines and minifies AngularJS template partials',
+		['ngtemplates']
+	);
     
     grunt.registerTask(
 		'build', 
 		'Compiles all of the assets and copies the files to the build directory.', 
-		['clean:build', 'copy', 'stylesheets', 'scripts']
+		['ngtemplates', 'stylesheets', 'scripts']
 	);
 }

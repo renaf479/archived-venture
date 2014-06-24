@@ -7,7 +7,7 @@
 	</head>
 	<body data-ng-app="ventureApp" data-ng-controller="ventureCtrl">
 		<global-header></global-header>
-		<div class="container" data-ui-view></div>
+		<ui-view></ui-view>
 		<script src="js/main.js" type="text/javascript"></script>
 	</body>
 </html>

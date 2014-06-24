@@ -1,21 +1,22 @@
 angular.module('ventureApp')
-	.factory('Authenticate', function($http, $rootScope, $cookieStore) {
+	.factory('Auth', function($http, $rootScope, $q) {
 		return {
+			//Read current user auth status and store
+			check: function() {
+				return $http.get('/service/authenticate', {cache: true}).then(function(response) {
+					$rootScope.user = response.data;
+					return response.data.auth;
+				});
+			},
 			login: function(user, success, error) {
-				return $http.post('/service/authenticate/login', user).success(function(user) {
-					sessionStorage.authenticated = 'true';
-					
-					$rootScope.user = {
-						user: user,
-						authenticated: true
-					}
-					
+				return $http.post('/service/authenticate/login', user).success(function(response) {
+					$rootScope.user = response;
 					//$rootScope.user.authenticated = sessionStorage.authenticated = 'true';
 				}).error(error);
 			},
 			logout: function() {
 				return $http.post('/service/authenticate/logout').then(function(response) {
-					$rootScope.user.authenticated = sessionStorage.authenticated = 'false';
+					$rootScope.user = {};
 					return response;
 				});
 			}
@@ -25,6 +26,36 @@ angular.module('ventureApp')
 	
 	
 /*
+
+angular.module('angular-client-side-auth')  
+.factory('Auth', function($http, $rootScope, $cookieStore){
+
+    var accessLevels = routingConfig.accessLevels
+        , userRoles = routingConfig.userRoles
+        , currentUser = $cookieStore.get('user') || 
+                        { username: '', role: userRoles.public };
+
+    // ...
+
+    return {
+
+        // ...
+
+        accessLevels: accessLevels,
+        userRoles: userRoles,
+        user: currentUser
+    };
+
+});
+
+
+
+
+
+
+
+
+
 app.factory('UserService', [ '$http', function($http){
 
    var userService = {};

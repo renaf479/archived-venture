@@ -9,7 +9,7 @@ class AuthenticationController extends \BaseController {
 	public function index()
 	{
 		return Response::json([
-			'status'=>Auth::check(),
+			'auth'=>Auth::check(),
 			'user'=>(Auth::check())? Auth::user(): false 
 			],
 			202
@@ -44,7 +44,9 @@ class AuthenticationController extends \BaseController {
 		
 		if(Auth::attempt($credentials)) {
 			return Response::json([
-				'user'=>Auth::user()->toArray()],
+				'auth'=>Auth::check(),
+				'user'=>(Auth::check())? Auth::user(): false 
+				],
 				202
 			);
 		} else {
@@ -52,7 +54,7 @@ class AuthenticationController extends \BaseController {
 				'flash'=>'Login failed'],
 				401
 			);
-		}
+		}		
 	}
 
 	/**

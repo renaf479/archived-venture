@@ -1,14 +1,14 @@
 <header id="global-header">
 	<div class="container">
-		<div id="header-left" data-ng-show="user.authenticated">
-			<button>Home</button>
+		<div id="header-left" data-ng-show="user.auth">
+			<span class="inline icon-home icon-hover transition-icon"></span>
 		</div>
 		<a href="#" id="header-logo">Venture</a>
-		<div id="header-right" data-ng-show="user.authenticated">
-			<form id="header-search">
+		<div id="header-right" data-ng-show="user.auth">
+			<form id="header-search" class="inline">
 				<input type="text" placeholder="Search">
 			</form>
-			<button data-ng-click="logout()">Logout</button>
+			<button class="inline" data-ng-click="logout()">Logout</button>
 		</div>
 	</div>
 </header>
