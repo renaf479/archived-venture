@@ -10,27 +10,38 @@ module.exports = function(grunt) {
 				dest: 'build',
 				expand: true
 			},
+			cssBuild: {
+				cwd: 'src/scss',
+				src: ['**/*.scss'],
+				dest: 'build/scss',
+				expand: true
+			},
+			cssDeploy: {
+				files: {'public/css/main.css': ['build/css/main.min.css']}
+			}
 	    },
 	    /** Wipes BUILD folder when finished **/
 	    clean: {
-			build: {
-				src: ['build']
+			css: {
+				src: ['build/css', 'build/scss']
 			},
 		},
 		/** Adds CSS vendor prefixes **/
 		autoprefixer: {
 			build: {
-				expand: true,
-				cwd: 'build',
-				src: [ '**/*.css' ],
-				dest: 'build'
+				files: {'build/css/autoprefixer.css': ['build/css/sass.css']}
 			}
 		},
 		/** Minifies CSS **/
 		cssmin: {
-			build: {
+			sass: {
 				files: {
-					'public/css/main.css': ['src/**/*.css']
+					'build/scss/cssmin.scss': ['build/scss/**/*.scss']
+				}
+			},
+			deploy: {
+				files: {
+					'build/css/main.min.css': ['build/css/autoprefixer.css']
 				}
 			}
 		},
@@ -65,9 +76,17 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		//SASS
+		sass: {
+			build: {
+				files: {
+					'build/css/sass.css': ['build/scss/cssmin.scss']
+				}
+			}
+		},
 		watch: {
 			stylesheets: {
-				files: 'src/**/*.css',
+				files: 'src/**/*.scss',
 				tasks: ['stylesheets']
 			},
 			scripts: {
@@ -94,7 +113,7 @@ module.exports = function(grunt) {
     grunt.registerTask(
 		'stylesheets', 
 		'Compiles the stylesheets.', 
-		['autoprefixer', 'cssmin']
+		['clean:css', 'copy:cssBuild', 'cssmin:sass', 'sass', 'autoprefixer', 'cssmin:deploy', 'copy:cssDeploy']
 	);
 	
 	grunt.registerTask(

@@ -7,12 +7,17 @@ angular.module('ventureApp').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('views/homepage.html',
-    "<div id=home class=container data-ng-controller=homepageController><form id=login data-ng-submit=loginPost() data-ng-model=login><ul><li><label>Username/E-mail</label><input placeholder=\"Username or E-mail\" data-ng-model=login.email></li><li><label>Password</label><input type=password placeholder=Password data-ng-model=login.password></li></ul><button type=submit>Log In</button></form></div>"
+    "<div id=home data-ng-controller=homepageController><div id=home-login data-ui-view=login data-ui-scrollfix=70></div><div style=\"width: 100%; height: 1000px; display:block\"></div></div>"
   );
 
 
   $templateCache.put('views/partials/global-header.html',
-    "<header id=global-header><div class=container><div id=header-left data-ng-show=user.auth><span class=\"inline icon-home icon-hover transition-icon\"></span></div><a href=# id=header-logo>Venture</a><div id=header-right data-ng-show=user.auth><form id=header-search class=inline><input placeholder=Search></form><button class=inline data-ng-click=logout()>Logout</button></div></div></header>"
+    "<header id=global-header><div class=container><div id=header-left data-ng-show=user.auth><span id=header-menu class=\"inline icon-hover transition-icon icon-menu2\"></span></div><a href=# id=header-logo>Venture</a><div id=header-right data-ng-show=user.auth><div id=header-search class=inline><input id=headerSearch-input class=\"inline formInput\"><button id=headerSearch-button class=\"inline icon-hover transition-icon icon-search\"></button></div><button class=inline data-ng-click=logout()>Logout</button></div></div></header>"
+  );
+
+
+  $templateCache.put('views/partials/login.html',
+    "<form id=login data-ng-submit=loginPost() data-ng-model=login><label class=formLabel>Username or E-mail</label><input class=formInput placeholder=\"Username or E-mail\" data-ng-model=login.email><label class=formLabel>Password</label><input type=password class=formInput placeholder=Password data-ng-model=login.password><button type=submit class=formSubmit>Sign In</button></form>"
   );
 
 }]);

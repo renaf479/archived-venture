@@ -4,6 +4,7 @@ ventureApp.config(function($stateProvider, $urlRouterProvider) {
 	
 	//Public    
     $stateProvider
+    	//Public Parent
 	    .state('public', {
 	        abstract: true,
 	        template: '<ui-view/>',
@@ -12,26 +13,46 @@ ventureApp.config(function($stateProvider, $urlRouterProvider) {
 	        }
 	    })
 	    .state('public.home', {
-            url: 			'/',
-            templateUrl: 	'views/homepage.html'
-        })
+            url: 	'/',
+            views: {
+            	//Main
+            	'': {templateUrl: 'views/homepage.html'},
+            	
+            	//Login
+            	'login@public.home': {templateUrl: 'views/partials/login.html'}
+            }
+        });
     
     
     $stateProvider
-    	//Homepage
-/*
-        .state('home', {
-            url: 			'/',
-            templateUrl: 	'views/homepage.html'
-        })
-*/
         .state('admin', {
 	        url:			'/',
 	        templateUrl:	'views/admin.html'
-        })
-});
+        });
+});//.config()
 
 /*
+
+
+    .state('about', {
+        url: '/about',
+        views: {
+
+            // the main template will be placed here (relatively named)
+            '': { templateUrl: 'partial-about.html' },
+
+            // the child views will be defined here (absolutely named)
+            'columnOne@about': { template: 'Look I am a column!' },
+
+            // for column two, we'll define a separate controller 
+            'columnTwo@about': { 
+                templateUrl: 'table-data.html',
+                controller: 'scotchController'
+            }
+        }
+        
+    });
+
 
 console.log(Authenticate.check());
 

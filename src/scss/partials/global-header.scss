@@ -6,7 +6,8 @@
 
 #global-header {
 	border-bottom: 1px solid #e8e8e8;
-	color: #fff;
+	background-color: #fff;
+	color: #000;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -38,4 +39,23 @@
 
 #header-right {
 	float: right;
+}
+
+#header-search {
+	position: relative;
+	height: 25px;
+	margin: 8px 0;
+}
+
+#headerSearch-input {
+	width: inherit;
+}
+
+#headerSearch-button {
+	margin: 0;
+	padding: 0 5px;
+	background: #e8e8e8;
+	border: 0 none;
+	font-size: 18px;
+	line-height: 25px;
 }

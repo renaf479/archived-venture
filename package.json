@@ -11,7 +11,11 @@
     "grunt-contrib-uglify": "0.2.x",
     "grunt-contrib-watch": "0.5.x",
     "grunt-angular-templates": "*",
+    "grunt-contrib-sass": "*",
     "load-grunt-tasks": "*"
   },
-  "engine": "node >= 0.10"
+  "engine": "node >= 0.10",
+  "devDependencies": {
+    "grunt-contrib-sass": "^0.7.3"
+  }
 }

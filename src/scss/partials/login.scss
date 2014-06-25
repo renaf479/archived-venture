@@ -1,0 +1,13 @@
+#login {
+}
+
+#home-login:not(.ui-scrollfix) .formInput,
+#home-login:not(.ui-scrollfix) .formLabel {
+	margin: 10px 0;
+	width: 100%;
+}
+
+#login input,
+#login label {
+	display: block;
+}

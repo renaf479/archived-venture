@@ -1,15 +1,4 @@
-<div id="home" class="container" data-ng-controller="homepageController">
-	<form id="login" data-ng-submit="loginPost()" data-ng-model="login">
-		<ul>
-			<li>
-				<label>Username/E-mail</label>
-				<input type="text" placeholder="Username or E-mail" data-ng-model="login.email">
-			</li>
-			<li>
-				<label>Password</label>
-				<input type="password" placeholder="Password" data-ng-model="login.password">
-			</li>
-		</ul>
-		<button type="submit">Log In</button>
-	</form>
+<div id="home" data-ng-controller="homepageController">
+	<div id="home-login" data-ui-view="login" data-ui-scrollfix="70"></div>
+	<div style="width: 100%; height: 1000px; display:block"></div>
 </div>
