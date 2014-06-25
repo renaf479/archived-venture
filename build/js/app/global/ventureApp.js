@@ -1,5 +1,5 @@
 'use strict';
-var ventureApp = angular.module('ventureApp', ['ngResource', 'ngSanitize', 'ui.router', 'ui.scrollfix']);
+var ventureApp = angular.module('ventureApp', ['ngResource', 'ngSanitize', 'ui.router', 'ui.scrollfix', 'ui.bootstrap']);
 
 ventureApp.run(function($rootScope, $state, Auth) {
 	$rootScope.user = {};

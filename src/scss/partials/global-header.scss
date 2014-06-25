@@ -44,7 +44,7 @@
 #header-search {
 	position: relative;
 	height: 25px;
-	margin: 8px 0;
+	margin: 11px 10px 0 0;
 }
 
 #headerSearch-input {
@@ -58,4 +58,15 @@
 	border: 0 none;
 	font-size: 18px;
 	line-height: 25px;
+}
+
+#header-user {
+	width: 30px;
+	vertical-align: middle;
+}
+
+#header-user-menu {
+	left: auto;
+	right: 0;
+	top: 90%;
 }

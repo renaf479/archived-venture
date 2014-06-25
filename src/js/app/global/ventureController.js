@@ -1,5 +1,6 @@
-ventureApp.controller('ventureCtrl', function($scope, $state, Auth) {
-	$scope.logout = function() {
+ventureApp.controller('ventureController', function($scope, $state, Auth) {
+
+	$scope.ventureLogout = function() {
 		Auth.logout().then(function(response) {
 			$state.go('public.home');
 		});

@@ -8,7 +8,13 @@
 			<div id="header-search" class="inline">
 				<input type="text" id="headerSearch-input" class="inline formInput"><button id="headerSearch-button" class="inline icon-hover transition-icon icon-search"></button>
 			</div>
-			<button class="inline" data-ng-click="logout()">Logout</button>
+			<div class="inline dropdown" on-toggle="toggled(open)">
+				<img id="header-user" class="inline icon-hover dropdown-toggle" data-ng-src="{{user.user.content.avatar}}"/>
+				<ul id="header-user-menu" class="dropdown-menu">
+					<li><a href="#" class="transition" data-ng-click="ventureLogout()">Logout</a></li>
+				</ul>
+			</div>
+			<!-- <button class="inline" data-ng-click="logout()">Logout</button> -->
 		</div>
 	</div>
 </header>

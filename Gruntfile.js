@@ -10,6 +10,12 @@ module.exports = function(grunt) {
 				dest: 'build',
 				expand: true
 			},
+			jsBuild: {
+				cwd: 'src/js',
+				src: ['**/*.js'],
+				dest: 'build/js',
+				expand: true
+			},
 			cssBuild: {
 				cwd: 'src/scss',
 				src: ['**/*.scss'],
@@ -18,6 +24,9 @@ module.exports = function(grunt) {
 			},
 			cssDeploy: {
 				files: {'public/css/main.css': ['build/css/main.min.css']}
+			},
+			jsDeploy: {
+				files: {'public/js/main.js': ['build/js/main.min.js']}
 			}
 	    },
 	    /** Wipes BUILD folder when finished **/
@@ -25,6 +34,9 @@ module.exports = function(grunt) {
 			css: {
 				src: ['build/css', 'build/scss']
 			},
+			js: {
+				src: ['build/js']
+			}
 		},
 		/** Adds CSS vendor prefixes **/
 		autoprefixer: {
@@ -52,7 +64,7 @@ module.exports = function(grunt) {
 					mangle: false
 				},
 				files: {
-					'public/js/main.js': ['src/**/*.js']
+					'build/js/main.min.js': ['build/js/**/*.js']
 				}
 			}
 		},
@@ -119,7 +131,7 @@ module.exports = function(grunt) {
 	grunt.registerTask(
 		'scripts', 
 		'Compiles the JavaScript files.', 
-		['uglify']
+		['clean:js', 'copy:jsBuild', 'uglify', 'copy:jsDeploy']
 	);
 
 	grunt.registerTask(

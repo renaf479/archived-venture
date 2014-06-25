@@ -1,16 +1,23 @@
 angular.module('ventureApp')
 	.factory('Auth', function($http, $rootScope, $q) {
+		
+		//Assigns REST response of user to Angular model
+		var buildUser = function(user) {
+			$rootScope.user = user;
+			$rootScope.user.user.content = angular.fromJson($rootScope.user.user.content);
+		}
+		
 		return {
 			//Read current user auth status and store
 			check: function() {
 				return $http.get('/service/authenticate', {cache: true}).then(function(response) {
-					$rootScope.user = response.data;
+					buildUser(response.data);
 					return response.data.auth;
 				});
 			},
 			login: function(user, success, error) {
 				return $http.post('/service/authenticate/login', user).success(function(response) {
-					$rootScope.user = response;
+					buildUser(response);
 					//$rootScope.user.authenticated = sessionStorage.authenticated = 'true';
 				}).error(error);
 			},
