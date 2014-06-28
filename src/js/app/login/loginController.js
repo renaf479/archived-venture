@@ -7,7 +7,7 @@ ventureApp.controller('loginController', function($scope, $sanitize, $state, Aut
 			'password':	$sanitize($scope.login.password)
 		}).then(function() {
 			//Redirect to ADMIN page/state
-			$state.go('admin');
+			$state.go('admin.home');
 		});
 	}
 

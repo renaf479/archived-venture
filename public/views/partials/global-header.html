@@ -11,10 +11,10 @@
 			<div class="inline dropdown" on-toggle="toggled(open)">
 				<img id="header-user" class="inline icon-hover dropdown-toggle" data-ng-src="{{user.user.content.avatar}}"/>
 				<ul id="header-user-menu" class="dropdown-menu">
-					<li><a href="#" class="transition" data-ng-click="ventureLogout()">Logout</a></li>
+					<li><a href="#" class="transition" data-ui-sref="admin.settings">Settings</a></li>
+					<li><a href="#" class="transition" data-ng-click="ventureLogout()">Sign Out</a></li>
 				</ul>
 			</div>
-			<!-- <button class="inline" data-ng-click="logout()">Logout</button> -->
 		</div>
 	</div>
 </header>

@@ -42,7 +42,7 @@ class AuthenticationController extends \BaseController {
 			'password'=>Input::get('password')
 		);
 		
-		if(Auth::attempt($credentials)) {
+		if(Auth::attempt($credentials, true)) {
 			return Response::json([
 				'auth'=>Auth::check(),
 				'user'=>(Auth::check())? Auth::user(): false 
@@ -51,9 +51,10 @@ class AuthenticationController extends \BaseController {
 			);
 		} else {
 			return Response::json([
-				'flash'=>'Login failed'],
-				401
-			);
+				'auth'=>false,
+				'user'=>false
+				],
+				202);
 		}		
 	}
 
@@ -63,9 +64,10 @@ class AuthenticationController extends \BaseController {
 	public function logout() {
 		Auth::logout();
 		return Response::json([
-			'test'=>'testing'
+			'auth'=>false,
+			'user'=>false 
 		],
-		200);
+		202);
 	}
 
 	/**

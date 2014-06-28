@@ -4,7 +4,7 @@
 
 #home-login {
 	transition: all .2s ease;
-	background-color: $bgColor;
+	background-color: $bgAccent;
 	height: 300px;
 	position: relative;
 }
@@ -39,7 +39,7 @@
 }
 
 #home-login.ui-scrollfix #login .formInput {
-	margin: 10px;
+	margin: 12px 10px;
 }
 
 #home-login.ui-scrollfix #login .formSubmit {

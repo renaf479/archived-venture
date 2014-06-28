@@ -25,9 +25,24 @@ ventureApp.config(function($stateProvider, $urlRouterProvider) {
     
     
     $stateProvider
-        .state('admin', {
+    	.state('admin', {
+    		abstract: true,
+    		template: '<ui-view/>',
+    		data: {
+	    		access: 'registered'
+    		}
+    	})
+        .state('admin.home', {
 	        url:			'/',
-	        templateUrl:	'views/admin.html'
+	        views: {
+	        	'': {templateUrl:	'views/admin/admin.html'}
+	        }
+        })
+        .state('admin.settings', {
+	        url:			'/settings',
+	        views: {
+		        '': {templateUrl: 'views/admin/settings.html'}
+	        }
         });
 });//.config()
 

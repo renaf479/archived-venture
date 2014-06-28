@@ -8,23 +8,50 @@ angular.module('ventureApp')
 		}
 		
 		return {
-			//Read current user auth status and store
+			//Checks current Auth status
 			check: function() {
-				return $http.get('/service/authenticate', {cache: true}).then(function(response) {
+				var userStatus 	= false;
+				var deferred	= $q.defer();
+				
+				if(!$rootScope.user.auth) {
+					//If user session model is not found, verify server status
+					var promise = $http.get('/service/authenticate').then(function(response) {
+						buildUser(response.data);
+						if(response.data.auth) {
+							return true;
+						} else {
+							return false;
+						}
+					});
+					
+					//userStatus = false;
+				} else {
+					var promise = deferred.promise;
+					
+					promise.then(function() {
+						return true;
+					});
+					
+					
+				}
+				
+				return promise;
+/*
+				return $http.get('/service/authenticate').then(function(response) {
 					buildUser(response.data);
 					return response.data.auth;
 				});
+*/
 			},
 			login: function(user, success, error) {
 				return $http.post('/service/authenticate/login', user).success(function(response) {
 					buildUser(response);
 					//$rootScope.user.authenticated = sessionStorage.authenticated = 'true';
-				}).error(error);
+				});
 			},
 			logout: function() {
 				return $http.post('/service/authenticate/logout').then(function(response) {
-					$rootScope.user = {};
-					return response;
+					buildUser(response.data);
 				});
 			}
 		}

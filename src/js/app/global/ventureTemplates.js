@@ -1,8 +1,13 @@
 angular.module('ventureApp').run(['$templateCache', function($templateCache) {
   'use strict';
 
-  $templateCache.put('views/admin.html',
+  $templateCache.put('views/admin/admin.html',
     "admin"
+  );
+
+
+  $templateCache.put('views/admin/settings.html',
+    "settings"
   );
 
 
@@ -12,7 +17,7 @@ angular.module('ventureApp').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('views/partials/global-header.html',
-    "<header id=global-header><div class=container><div id=header-left data-ng-show=user.auth><span id=header-menu class=\"inline icon-hover transition-icon icon-menu2\"></span></div><a href=# id=header-logo>Venture</a><div id=header-right data-ng-show=user.auth><div id=header-search class=inline><input id=headerSearch-input class=\"inline formInput\"><button id=headerSearch-button class=\"inline icon-hover transition-icon icon-search\"></button></div><div class=\"inline dropdown\" on-toggle=toggled(open)><img id=header-user class=\"inline icon-hover dropdown-toggle\" data-ng-src={{user.user.content.avatar}}><ul id=header-user-menu class=dropdown-menu><li><a href=# class=transition data-ng-click=ventureLogout()>Logout</a></li></ul></div></div></div></header>"
+    "<header id=global-header><div class=container><div id=header-left data-ng-show=user.auth><span id=header-menu class=\"inline icon-hover transition-icon icon-menu2\"></span></div><a href=# id=header-logo>Venture</a><div id=header-right data-ng-show=user.auth><div id=header-search class=inline><input id=headerSearch-input class=\"inline formInput\"><button id=headerSearch-button class=\"inline icon-hover transition-icon icon-search\"></button></div><div class=\"inline dropdown\" on-toggle=toggled(open)><img id=header-user class=\"inline icon-hover dropdown-toggle\" data-ng-src={{user.user.content.avatar}}><ul id=header-user-menu class=dropdown-menu><li><a href=# class=transition data-ui-sref=admin.settings>Settings</a></li><li><a href=# class=transition data-ng-click=ventureLogout()>Sign Out</a></li></ul></div></div></div></header>"
   );
 
 

@@ -1,7 +1,7 @@
 /***** GENERAL *****/
 @font-face {
 	font-family: 'Roboto';
-	src: url('../files/fonts/RobotoCondensed-Regular.ttf');
+	src: url('../files/fonts/Roboto-Regular.ttf');
 }
 
 html,
@@ -22,7 +22,10 @@ h1, h2, h3, h4, h5 {
 	padding: 0;
 }
 
-a {
+a,
+a:hover,
+a:active,
+a:focus {
 	text-decoration: none;
 	outline: 0 none;
 }

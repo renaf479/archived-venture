@@ -30,6 +30,7 @@ return array(
     'ClassPreloader\\Parser\\DirVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/DirVisitor.php',
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
+    'CreateDashboardTable' => $baseDir . '/app/database/migrations/2014_06_28_063651_create_dashboard_table.php',
     'CreateRolesTable' => $baseDir . '/app/database/migrations/2014_06_23_213152_create_roles_table.php',
     'CreateTemplateTable' => $baseDir . '/app/database/migrations/2014_06_16_051436_create_template_table.php',
     'CreateUserProfilesTable' => $baseDir . '/app/database/migrations/2014_06_25_005006_create_user_profiles_table.php',
