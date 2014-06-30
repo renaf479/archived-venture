@@ -3,19 +3,10 @@
 }
 
 #home-login {
+	background-color: $colorPrimaryLight;
 	transition: all .2s ease;
-	background-color: $bgAccent;
 	height: 300px;
 	position: relative;
-}
-
-#home-login #login {
-	position: absolute;
-	width: 300px;
-	height: 190px;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 }
 
 #home-login.ui-scrollfix {
@@ -26,22 +17,3 @@
 	top: 45px;
 }
 
-#home-login.ui-scrollfix .formLabel,
-#home-login.ui-scrollfix .formInput {
-	display: inline-block;
-	vertical-align: top;
-	line-height: 50px;
-}
-
-#home-login.ui-scrollfix #login {
-	width: auto;
-	height: inherit;
-}
-
-#home-login.ui-scrollfix #login .formInput {
-	margin: 12px 10px;
-}
-
-#home-login.ui-scrollfix #login .formSubmit {
-	margin-top: 7px;
-}

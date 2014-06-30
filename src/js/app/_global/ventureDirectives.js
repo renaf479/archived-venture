@@ -3,7 +3,7 @@ ventureApp.directive('globalHeader', function($window) {
 		restrict: 'E',
 		replace: true,
 		transclude: true,
-		templateUrl: 'views/partials/global-header.html',
+		templateUrl: 'platform/header.html',
 		link: function(scope, element, attr) {
 			//console.log(angular.element($window));
 		}

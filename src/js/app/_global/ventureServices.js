@@ -1,4 +1,64 @@
+/*
+angular.module('commentService', [])
+
+	.factory('Comment', function($http) {
+
+		return {
+			// get all the comments
+			get : function() {
+				return $http.get('/api/comments');
+			},
+
+			// save a comment (pass in comment data)
+			save : function(commentData) {
+				return $http({
+					method: 'POST',
+					url: '/api/comments',
+					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
+					data: $.param(commentData)
+				});
+			},
+
+			// destroy a comment
+			destroy : function(id) {
+				return $http.delete('/api/comments/' + id);
+			}
+		}
+
+	});
+*/
+
 angular.module('ventureApp')
+	.factory('API', function($http, $rootScope, $q) {
+		return {
+			get: function(model) {
+				var promise = $http.get('/api/'+model).then(function(response) {
+					return response.data;
+				});
+				return promise;
+			},
+			save: function(data, model) {
+				return $http({
+					method: 'POST',
+					url:	'/api/'+model,
+					header: {'Content-Type': 'application/x-www-form-urlencoded'},
+					data:	data
+				});
+			}
+			
+			
+			/*
+						save : function(commentData) {
+				return $http({
+					method: 'POST',
+					url: '/api/comments',
+					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
+					data: $.param(commentData)
+				});
+			},
+			*/
+		}
+	})
 	.factory('Auth', function($http, $rootScope, $q) {
 		
 		//Assigns REST response of user to Angular model

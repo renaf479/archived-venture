@@ -1,0 +1,94 @@
+/***** HEADER *****/
+#global-header {
+	@extend .shadow;
+	border-bottom: 1px solid $colorPrimaryDark;
+	background-color: $colorPrimary;
+	color: #000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 50000;
+	height: 45px;
+	line-height: 45px;
+	
+	[class^='icon-'],
+	[class*=' icon-'] {
+		color: $colorIcon;
+	}
+	
+	.left {
+		
+	}
+	
+	.logo {
+		/*background: transparent url(../images/logo.png) no-repeat center center/auto 28px;*/
+		@extend .left;
+		@extend .transition;
+		font-family: 'VentureLogo';
+		font-weight: bold;
+		font-size: 1.8em;
+		color: #fff;
+		letter-spacing: 5px;
+		line-height: 45px;
+		padding: 0 10px;
+		height: inherit;
+		
+		&:hover {
+			background-color: $colorPrimaryLight;
+			color: $colorAccent;
+		}
+	}
+	
+	.right {
+		
+	}
+}
+
+#header-search {
+	@extend .inline;
+	position: relative;
+	height: 25px;
+	margin: 11px 10px 0 0;
+
+	.search {
+		vertical-align: top;
+		width: 90%;
+		color: $whiteText;
+	}
+	
+	.icon-search {
+		color: $colorAccent;
+		vertical-align: top;
+		font-size: 18px;
+		line-height: 25px;
+		position: absolute;
+		right: 0;
+	}
+}
+
+#header-profile {
+	@extend .inline;
+	@extend .hover;
+	.dropdown-toggle {
+		vertical-align: middle;
+		.avatar {
+			width: 30px;
+		}
+	}
+	
+	.dropdown-menu {
+		background-color: $colorPrimary;
+		border-color: $colorAccentLight;
+		border-width: 0 2px 2px 0;
+		left: auto;
+		right: 0;
+		top: 90%;
+		
+		li {
+			a {
+				color: $colorTextInverse;
+			}
+		}
+	}
+}

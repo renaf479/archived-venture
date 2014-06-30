@@ -1,0 +1,21 @@
+<div data-ng-controller="dashboardListCtrl" id="dashboards">
+	<form id="create" data-ng-class="{'extend': showForm}" data-ng-submit="create()" data-ng-model="createForm">
+		<div class="container">
+			<div id="create-expand" data-ng-click="toggle()">
+				<span data-ng-show="!showForm">Create</span>
+				<span data-ng-show="showForm">Close</span>
+			</div>
+			<div id="create-form" data-ng-show="showForm">
+				<input type="text" placeholder="Title" data-ng-model="createForm.name"/>
+				<textarea placeholder="Description" data-ng-model="createForm.description"></textarea>
+				<button type="submit">Create</button>
+			</div>
+		</div>
+	</form>
+	<div id="list" data-ng-class="{'extend': showForm}">
+		<div id="dashboard-{{dashboard.id}}" class="tile" data-ng-repeat="dashboard in dashboards">
+			{{dashboard.name}}
+			<a data-ui-sref="dashboard.editor({id:'{{dashboard.id}}'})">Link</a>
+		</div>	
+	</div>
+</div>

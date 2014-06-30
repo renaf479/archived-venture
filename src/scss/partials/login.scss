@@ -1,3 +1,15 @@
+#home {
+	#login {
+		position: absolute;
+		width: 300px;
+		height: 190px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+
 #login {
 }
 
@@ -10,4 +22,24 @@
 #login input,
 #login label {
 	display: block;
+}
+
+#home-login.ui-scrollfix .formLabel,
+#home-login.ui-scrollfix .formInput {
+	display: inline-block;
+	vertical-align: top;
+	line-height: 50px;
+}
+
+#home-login.ui-scrollfix #login {
+	width: auto;
+	height: inherit;
+}
+
+#home-login.ui-scrollfix #login .formInput {
+	margin: 12px 10px;
+}
+
+#home-login.ui-scrollfix #login .formSubmit {
+	margin-top: 7px;
 }

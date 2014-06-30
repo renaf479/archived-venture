@@ -16,10 +16,10 @@ ventureApp.config(function($stateProvider, $urlRouterProvider) {
             url: 	'/',
             views: {
             	//Main
-            	'': {templateUrl: 'views/homepage.html'},
+            	'': {templateUrl: 'homepage.html'},
             	
             	//Login
-            	'login@public.home': {templateUrl: 'views/partials/login.html'}
+            	'login@public.home': {templateUrl: 'platform/login.html'}
             }
         });
     
@@ -33,17 +33,31 @@ ventureApp.config(function($stateProvider, $urlRouterProvider) {
     		}
     	})
         .state('admin.home', {
-	        url:			'/',
+	        url: '/',
 	        views: {
-	        	'': {templateUrl:	'views/admin/admin.html'}
+	        	'': {templateUrl:	'admin/admin.html'},
+	        	'content@admin.home': {templateUrl: 'admin/dashboard/list.html'}
 	        }
         })
         .state('admin.settings', {
-	        url:			'/settings',
+	        url: '/settings',
 	        views: {
-		        '': {templateUrl: 'views/admin/settings.html'}
+		        '': {templateUrl: 'admin/settings.html'}
 	        }
         });
+       
+	$stateProvider
+		.state('dashboard', {
+			abstract: true,
+			template: '<ui-view/>',
+			data: {
+				access: 'registered'
+			}
+		})
+		.state('dashboard.editor', {
+			url: '/dashboard/editor/:id',
+			templateUrl: 'admin/dashboard/editor.html' 			
+		});
 });//.config()
 
 /*

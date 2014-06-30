@@ -36,6 +36,9 @@ module.exports = function(grunt) {
 			},
 			js: {
 				src: ['build/js']
+			},
+			templates: {
+				src: ['build/templates']
 			}
 		},
 		/** Adds CSS vendor prefixes **/
@@ -71,9 +74,9 @@ module.exports = function(grunt) {
 		/** Combines and minifes Angular templates */
 	    ngtemplates: {
 			ventureApp: {
-				cwd:		'public/',
-				src:        'views/**/*.html',
-				dest:       'src/js/app/global/ventureTemplates.js',
+				cwd:		'src/templates',
+				src:        '**/*.html',
+				dest:       'src/js/app/_global/ventureTemplates.js',
 				options: {
 					htmlmin: {
 						collapseBooleanAttributes:      true,
@@ -106,7 +109,7 @@ module.exports = function(grunt) {
 				tasks: ['scripts']
 			},
 			templates: {
-				files: ['public/views/**/*.html'],
+				files: ['src/templates/**/*.html'],
 				tasks: ['templates']
 			},
 			copy: {

@@ -1,6 +1,11 @@
+.container {
+	margin: 0 auto;
+	padding: 0;
+}
+
 .dropdown-menu {
-	background-color: $bgColor;
-	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.176);
+	border-radius: 0;
+	@extend .shadow;
 }
 
 .dropdown-menu > li > a:hover,

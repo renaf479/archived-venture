@@ -4,6 +4,11 @@
 	src: url('../files/fonts/Roboto-Regular.ttf');
 }
 
+@font-face {
+	font-family: 'VentureLogo';
+	src: url('../files/fonts/telavision.ttf');
+}
+
 html,
 body,
 ui-view {
@@ -30,6 +35,28 @@ a:focus {
 	outline: 0 none;
 }
 
+input {
+	background-color: transparent;
+	border: 0 none;
+	border-bottom: 2px solid $colorAccent;
+	padding: 0 5px;
+	height: 25px;
+	color: $colorText;
+}
+
+/***** Extend *****/
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.hover {
+	cursor: pointer;
+}
+
 .container {
 	position: relative;
 	width: 100%;
@@ -44,21 +71,36 @@ a:focus {
 	vertical-align: top;
 }
 
-.formInput {
-	border: 1px solid $borderColor;
-	padding: 0 5px;
-	height: 25px;
+.shadow {
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 }
 
-.formInput:focus {
-	border: 1px solid blue;
-}
+
+
+
+
+
+
+
+
 
 .formSubmit {
 	font-weight: bold;
 	height: 32px;
-	background-color: $bgBlue;
+	background-color: $colorAccent;
 	border: 0 none;
 	color: #fff;
 	cursor: pointer;
 }
+
+.tile {
+	
+}
+
+.tile-hover {
+	box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.2s);
+}
+
+
+
+

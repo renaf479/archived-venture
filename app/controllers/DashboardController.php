@@ -9,7 +9,7 @@ class DashboardController extends \BaseController {
 	 */
 	public function index()
 	{
-		return Response::json(Dashboard::get());
+		return Response::json(Dashboard::where('user_id', Auth::user()->id)->get());
 	}
 
 	/**
@@ -19,6 +19,23 @@ class DashboardController extends \BaseController {
 	 */
 	public function store()
 	{
+		$dashboard 	= Dashboard::create(array(
+						'name'=>Input::get('name'),
+						'user_id'=>Auth::user()->id
+					));
+		$hash		= PseudoCrypt::hash($dashboard->id);
+		
+		$update				= Dashboard::find($dashboard->id);
+		$update->content 	= json_encode(array(
+								'description'=>Input::get('description'),
+								'hash'=>$hash
+							));
+		$update->save();
+
+		return Response::json(array(
+			'success'=>true,
+			'hash'=>$hash
+		));
 /*
 		Dashboard::create(array(
 			'author' => Input::get('author'),
