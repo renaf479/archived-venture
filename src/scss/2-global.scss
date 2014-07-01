@@ -17,7 +17,8 @@ ui-view {
 }
 
 body {
-	padding-top: 45px;
+	background-color: $bgPrimary;
+	padding-top: $toolbarPrimaryHeight;
 	margin: 0;
 	font-family: 'Roboto', sans-serif;
 }

@@ -14,6 +14,10 @@ $teal500: #009688;
 $teal900: #004d40;
 $teal100: #b2dfdb;
 
+$cyan500: #00bcd4;
+$cyan900: #006064;
+$cyan50: #e0f7fa;
+
 $indigo500: #3f51ba;
 $indigo900: #1a237e;
 $indigo200: #9fa8da;
@@ -22,13 +26,16 @@ $deepOrange500: #ff5722;
 $deepOrangeA100: #ff9e80;
 $deepOrange700: #dd2c00;
 
-$colorPrimary: $teal500;
-$colorPrimaryDark: $teal900;
-$colorPrimaryLight: $teal100;
+$colorPrimary: $deepOrange500;
+$colorPrimaryDark: $deepOrange700;
+$colorPrimaryLight: $deepOrangeA100;
 
-$colorAccent: $deepOrange500;
-$colorAccentLight: $deepOrangeA100;
-$colorAccentDark: $deepOrange700;
+$colorAccent: $cyan500;
+$colorAccentDark: $cyan900;
+$colorAccentLight: $cyan50;
+
+$bgPrimary: #fafafa;
+$bgSecondary: #eee;
 
 $blackText: rgba(0, 0, 0, .87);
 $blackTextSecondary: rgba(0, 0, 0, .54);
@@ -40,7 +47,7 @@ $whiteTextSecondary: rgba(255, 255, 255, .54);
 $whiteHint: rgba(255, 255, 255, .26);
 $whiteDivider: rgba(255, 255, 255, .12);
 
-$toolbarPrimaryHeight: 45px;
+$toolbarPrimaryHeight: 50px;
 $toolbarSecondaryHeight: 35px; 
 
 @mixin toolbar($height, $color) {
@@ -49,6 +56,11 @@ $toolbarSecondaryHeight: 35px;
 	background-color: $color;
 	display: block;
 }
+
+$zindex: (
+  toolbarPrimary     : 10000, 
+  toolbarSecondary   : 9000
+);
 
 /** REMOVE **/
 $colorText: #000;

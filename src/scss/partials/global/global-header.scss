@@ -8,9 +8,9 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	z-index: 50000;
-	height: 45px;
-	line-height: 45px;
+	z-index: map-get($zindex, toolbarPrimary);
+	height: $toolbarPrimaryHeight;
+	line-height: $toolbarPrimaryHeight;
 	
 	[class^='icon-'],
 	[class*=' icon-'] {
@@ -30,7 +30,6 @@
 		font-size: 1.8em;
 		color: #fff;
 		letter-spacing: 5px;
-		line-height: 45px;
 		padding: 0 10px;
 		height: inherit;
 		
@@ -55,10 +54,11 @@
 		vertical-align: top;
 		width: 90%;
 		color: $whiteText;
+		border-color: $whiteText;
 	}
 	
 	.icon-search {
-		color: $colorAccent;
+		color: $whiteText;
 		vertical-align: top;
 		font-size: 18px;
 		line-height: 25px;

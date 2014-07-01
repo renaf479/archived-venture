@@ -1,10 +1,14 @@
 #dashboards {
 	#create {
-		@include toolbar($toolbarSecondaryHeight, $colorPrimaryLight);
+		@include toolbar($toolbarSecondaryHeight, $bgSecondary);
 		@extend .transition;
+		@extend .shadow;
+		
+		position: fixed;
+		top: $toolbarPrimaryHeight;
+		z-index: map-get($zindex, toolbarSecondary);
+		
 		&.extend {
-			position: fixed;
-			top: $toolbarPrimaryHeight;
 			height: 150px;
 		}
 		
@@ -17,7 +21,7 @@
 			line-height: $toolbarSecondaryHeight;
 			height: $toolbarSecondaryHeight;
 			font-weight: bold;
-			color: $colorAccentDark;
+			color: $colorPrimary;
 		}
 	}
 	#list {
@@ -26,15 +30,18 @@
 		
 		text-align: center;
 		
+		margin-top: $toolbarSecondaryHeight + 10px;
+		
 		&.extend {
-			margin-top: 150px;
+			margin-top: 160px;
 		}
 		
 		.tile {
 			@extend .left;
 			background-color: $colorAccentLight;
 			margin: 2px;
-			width: 300px;
+			/* width: 300px; */
+			width: calc(33.3333% - 4px);
 			height: 200px;
 			display: block;
 			
