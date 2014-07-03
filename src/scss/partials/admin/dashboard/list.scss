@@ -1,4 +1,35 @@
+$createExtendHeight: 150px;
+$createBtn: 35px;
+
 #dashboards {
+	#create-btn {
+		@extend .transition;
+		@extend .hover;
+		@include circle($createBtn, $colorAccent);
+		position: absolute;
+		font-size: 0;
+		left: 50%;
+		margin-left: -$createBtn/2;
+		top: $toolbarPrimaryHeight - $createBtn/2;
+		z-index: map-get($zindex, top);
+		
+		&:after {
+/*
+			content: '>';
+			display: block;
+			left: 0;
+			top: 0;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+*/		
+		}
+		
+		&.extend {
+			top: $createExtendHeight + $toolbarPrimaryHeight - $createBtn/2;
+		}
+	}
+	
 	#create {
 		@include toolbar($toolbarSecondaryHeight, $bgSecondary);
 		@extend .transition;
@@ -6,22 +37,21 @@
 		
 		position: fixed;
 		top: $toolbarPrimaryHeight;
+		height: 0;
 		z-index: map-get($zindex, toolbarSecondary);
 		
 		&.extend {
-			height: 150px;
+			height: $createExtendHeight;
 		}
 		
-		#create-expand {
-			@extend .hover;
+		#create-form {
 			text-align: center;
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-			line-height: $toolbarSecondaryHeight;
-			height: $toolbarSecondaryHeight;
-			font-weight: bold;
-			color: $colorPrimary;
+			color: $whiteText;
+			border-color: $whiteText;
+			
+			.submit {
+				@extend .hover;
+			}
 		}
 	}
 	#list {
@@ -33,7 +63,7 @@
 		margin-top: $toolbarSecondaryHeight + 10px;
 		
 		&.extend {
-			margin-top: 160px;
+			margin-top: $createExtendHeight + 10px;
 		}
 		
 		.tile {

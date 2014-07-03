@@ -57,9 +57,21 @@ $toolbarSecondaryHeight: 35px;
 	display: block;
 }
 
+@mixin circle($radius, $color) {
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .2);
+	background-color: $color;
+	border-radius: 50%;
+	width: $radius;
+	height: $radius;
+	display: block;
+}
+
 $zindex: (
-  toolbarPrimary     : 10000, 
-  toolbarSecondary   : 9000
+	modal: 1000,
+	top: 900,
+	toolbarPrimary: 500,
+	toolbarSecondary: 400,
+	hover: 300
 );
 
 /** REMOVE **/

@@ -84,7 +84,6 @@ input {
 
 
 
-
 .formSubmit {
 	font-weight: bold;
 	height: 32px;
@@ -100,6 +99,8 @@ input {
 
 .tile-hover {
 	box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.2s);
+	position: relative;
+	z-index: map-get($zindex, hover);
 }
 
 

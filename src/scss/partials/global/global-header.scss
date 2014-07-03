@@ -51,10 +51,17 @@
 	margin: 11px 10px 0 0;
 
 	.search {
+		@extend .transition;
+		
+		opacity: .3;
 		vertical-align: top;
 		width: 90%;
 		color: $whiteText;
 		border-color: $whiteText;
+		
+		&:focus {
+			opacity: 1;	
+		}
 	}
 	
 	.icon-search {
