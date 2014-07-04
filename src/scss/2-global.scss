@@ -73,11 +73,12 @@ input {
 }
 
 .shadow {
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.25);
 }
 
-
-
+.ng-invalid-required {
+	border-color: red;
+}
 
 
 
@@ -91,6 +92,21 @@ input {
 	border: 0 none;
 	color: #fff;
 	cursor: pointer;
+}
+
+.form-group {
+	@extend .inline;
+	margin: 0;
+}
+
+.button {
+	@extend .transition;
+	background: none;
+	border: 0 none;
+}
+
+.button:disabled {
+	opacity: 0;
 }
 
 .tile {

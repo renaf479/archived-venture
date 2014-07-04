@@ -1,16 +1,17 @@
 <div data-ng-controller="dashboardListCtrl" id="dashboards">
-	<div id="create-btn" data-ng-class="{'extend': showForm}" data-ng-click="toggle()">
-		<span data-ng-show="!showForm">Create</span>
-		<span data-ng-show="showForm">Close</span>
-	</div>
-	<form id="create" data-ng-class="{'extend': showForm}" data-ng-submit="create()" data-ng-model="createForm">
+	<form id="create" name="formCreate" data-ng-class="{'extend': showForm}" data-ng-submit="create(formCreate.$valid)" novalidate>
 		<div class="container">
+			<div id="create-btn" data-ng-class="{'extend': showForm}" data-ng-click="toggle()"></div>
 			<div id="create-form" data-ng-show="showForm">
-				<label>Name</label>
-				<input type="text" placeholder="Title" data-ng-model="createForm.name"/>
-				<label>Description</label>
-				<input type="text" placeholder="Description" data-ng-model="createForm.description"/>
-				<span class="submit icon-arrow-right2" data-ng-submit="create()"></span>
+				<div class="form-group">
+					<label>Name</label>
+					<input type="text" placeholder="Title" data-ng-model="createForm.name" required>
+				</div>
+				<div class="form-group">
+					<label>Description</label>
+					<input type="text" placeholder="Description" data-ng-model="createForm.description">
+				</div>
+				<button type="submit" class="submit icon-arrow-right2" data-ng-disabled="formCreate.$invalid"></button>
 			</div>
 		</div>
 	</form>

@@ -1,0 +1,109 @@
+/***** HEADER *****/
+#global-header {
+	@extend .shadow;
+	background-color: $colorPrimary;
+	color: #000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: map-get($zindex, toolbarPrimary);
+	height: $toolbarPrimaryHeight;
+	line-height: $toolbarPrimaryHeight;
+	
+	[class^='icon-'],
+	[class*=' icon-'] {
+		color: $colorIcon;
+	}
+	
+	.left {
+		
+	}
+	
+	.logo {
+		/*background: transparent url(../images/logo.png) no-repeat center center/auto 28px;*/
+		@extend .left;
+		@extend .transition;
+		font-family: 'VentureLogo';
+		font-weight: bold;
+		font-size: 1.8em;
+		color: #fff;
+		letter-spacing: 5px;
+		padding: 0 10px;
+		height: inherit;
+		
+		&:hover {
+			background-color: $colorPrimaryLight;
+			color: $colorAccent;
+		}
+	}
+	
+	.right {
+		
+	}
+	
+	#header-search {
+		@extend .inline;
+		position: relative;
+		height: inherit;
+		line-height: $toolbarPrimaryHeight;
+		margin: 0 15px;
+	
+		.search {
+			@extend .transition;
+			
+			opacity: .3;
+			width: 90%;
+			color: $whiteText;
+			border-color: $whiteText;
+			
+			&:focus {
+				opacity: 1;	
+			}
+		}
+		
+		.icon-search {
+			color: $whiteText;
+			font-size: 18px;
+			position: absolute;
+			right: 0;
+		}
+	}
+	
+	#header-profile {
+		@extend .inline;
+		@extend .hover;
+		position: relative;
+		.dropdown-toggle {
+			position: relative;
+			margin-top: ($toolbarPrimaryHeight - $desktopIcon)/2;
+			width: $desktopIcon;
+			height: $desktopIcon;
+			.avatar {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: $desktopIcon/2;
+			}
+		}
+		
+		.dropdown-menu {
+			@extend .shadow;
+			background-color: #fff;
+			margin: 0;
+			padding: 0;
+			left: auto;
+			right: 10px;
+			top: 20px;
+			width: 165px;
+			
+			li {
+				margin: 5px 0;
+				a {
+					color: $colorText;
+				}
+			}
+		}
+	}
+}

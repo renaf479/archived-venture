@@ -1,0 +1,97 @@
+$createExtendHeight: 70px;
+$createBtn: 40px;
+
+#dashboards {
+	#create {
+		@include toolbar($toolbarPrimaryHeight, $colorPrimary);
+		@extend .transition;
+		@extend .shadow;
+		
+		position: fixed;
+		color: $whiteText;
+		top: $toolbarPrimaryHeight;
+		left: 0;
+		height: 0;
+		line-height: $toolbarPrimaryHeight;
+		z-index: map-get($zindex, top);
+		
+		&.extend {
+			height: $toolbarPrimaryHeight;
+		}
+		
+		#create-form {
+			border-color: $whiteText;
+			height: inherit;
+			
+			.submit {
+				@include circle($createBtn, $colorAccent);
+				@extend .hover;
+				@extend .transition;
+				@extend .button;
+				
+			}
+		}
+		
+		#create-btn {
+			@include circle($desktopIcon, $colorAccent);
+			@extend .transition;
+			@extend .hover;
+			border: 4px solid $bgPrimary;
+			position: absolute;
+			right: 5%;
+			top: -$desktopIcon/2;
+			
+			&:after {
+				/* @include triangle(down, $createArrow, $createArrow/2, $colorPrimary); */
+				@extend .transition;
+				content: '+';
+				font-size: 2em;
+				text-align: center;
+				line-height: ($desktopIcon - 8);
+				display: block;
+			}
+			
+			&.extend {
+				top: ($toolbarPrimaryHeight) - ($createBtn/2);
+				
+				&:after {
+					transform-origin: center;
+					transform: rotate(45deg);
+					/* @include triangle(up, 25px, 12px, $colorPrimaryDark); */
+				}
+			}
+		}
+	}
+	#list {
+		@extend .container;
+		@extend .transition;
+		
+		text-align: center;
+		
+		margin-top: $toolbarSecondaryHeight + 10px;
+		
+		&.extend {
+			margin-top: $createExtendHeight + 10px;
+		}
+		
+		.tile {
+			@extend .left;
+			background-color: $colorAccentLight;
+			margin: 2px;
+			/* width: 300px; */
+			width: calc(33.3333% - 4px);
+			height: 200px;
+			display: block;
+			
+/*
+			&:nth-child(2n+2) {
+				width: 385px;
+			}
+*/
+			
+			&:hover {
+				@extend .tile-hover;
+			}
+		}	
+	}
+}
