@@ -1,3 +1,4 @@
+/*
 $lightGray: #e8e8e8;
 $bgGray: #f1f1f1;
 $bgBlue: blue;
@@ -6,8 +7,11 @@ $bgAccent: #ff9e80;
 
 $borderColor: $lightGray;
 $bgColor: $bgGray;
+*/
 
 $hoverOpacity: .7s;
+
+$gridUnit: 8px;
 
 /***** SASS *****/
 $teal500: #009688;
@@ -24,7 +28,7 @@ $indigo200: #9fa8da;
 
 $deepOrange500: #ff5722;
 $deepOrange100: #ffccbc;
-$deepOrange700: #dd2c00;
+$deepOrange700: #e64a19;
 
 $colorPrimary: $deepOrange500;
 $colorPrimaryDark: $deepOrange700;

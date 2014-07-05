@@ -1,13 +1,22 @@
-ventureApp.controller('dashboardListCtrl', function($scope, $sanitize, $state, API) {
+ventureApp.controller('dashboardListCtrl', function($scope, $rootScope, $sanitize, $state, API) {
+	$rootScope.headerExtend	= true;
+
+/*
 	$scope.createForm	= {};
 	$scope.dashboards 	= {};
 	$scope.showForm 	= false;
+*/
 	
 
 	API.get('dashboards').then(function(data) {
 		$scope.dashboards = data;
 	})
 	
+	$scope.create = function() {
+		$scope.dashboardCreate = 'admin/dashboard/create.html';
+	}	
+	
+/*
 	$scope.toggle = function() {
 		$scope.createForm 	= {};
 		$scope.showForm 	= !$scope.showForm;
@@ -22,6 +31,7 @@ ventureApp.controller('dashboardListCtrl', function($scope, $sanitize, $state, A
 			});	
 		}
 	}
+*/
 	
 	/*
 			$scope.submitForm = function(isValid) {
