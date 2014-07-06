@@ -1,0 +1,130 @@
+$createExtendHeight: 70px;
+$createBtn: 40px;
+
+#dashboards {
+	#toolbar {
+		$height: ($gridUnit * 7);
+		color: #fff;
+		position: fixed;
+		top: ($gridUnit * 5);
+		left: 0;
+		right: 0;
+		
+		z-index: map-get($zindex, toolbarPrimary);
+		@include toolbar($height, $colorPrimary);
+		
+		
+		
+		#title {
+
+			text-indent: 8%;
+			line-height: $height;
+		}
+		
+		#create-btn {
+			$radius: $gridUnit * 6;
+		
+			@extend .transition;
+			@extend .hover;
+			@extend .shadow;
+			
+			position: absolute;
+			left: 3%;
+			top: $height - $radius/2;
+			
+			@include circle($radius, $colorAccent);
+			
+			
+
+			&:after {
+				@extend .transition;
+				content: '+';
+				color: $blackTextSecondary;
+				font-size: 2.5em;
+				text-align: center;
+				line-height: $radius;
+				display: block;
+			}
+			
+/*
+			&.extend {
+				top: ($toolbarPrimaryHeight) - ($createBtn/2);
+				
+				&:after {
+					transform-origin: center;
+					transform: rotate(45deg);
+				}
+			}
+*/
+		}
+		
+	}
+
+
+
+	#list {
+		@extend .transition;
+		@extend .inline;
+		
+		width: 100%;
+		margin-top: 16px;
+		
+		.tile {
+			@extend .left;
+			background-color: $colorAccentLight;
+			margin: 4px;
+			/* width: 300px; */
+			min-width: 160px;
+			width: calc(25% - 8px);
+			height: 220px;
+			display: block;
+			
+/*
+			&:nth-child(2n+2) {
+				width: 385px;
+			}
+*/
+			
+			&:hover {
+				@extend .tile-hover;
+			}
+		}	
+	}
+
+	#create {
+		@extend .inline;
+		
+		width: 50%;
+		display: block;
+/*
+		@include toolbar($toolbarPrimaryHeight, $colorPrimary);
+		@extend .transition;
+		@extend .shadow;
+		
+		position: absolute;
+		color: $whiteText;
+		top: $toolbarPrimaryHeight;
+		left: 0;
+		height: 0;
+		line-height: $toolbarPrimaryHeight;
+		
+		&.extend {
+			height: $toolbarPrimaryHeight;
+		}
+		
+		#create-form {
+			border-color: $whiteText;
+			height: inherit;
+			
+			.submit {
+				@include circle($createBtn, $colorAccent);
+				@extend .hover;
+				@extend .transition;
+				@extend .button;
+				
+			}
+		}
+*/
+	}
+
+}

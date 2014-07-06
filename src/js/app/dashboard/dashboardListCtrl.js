@@ -1,6 +1,6 @@
 ventureApp.controller('dashboardListCtrl', function($scope, $rootScope, $sanitize, $state, API) {
 	$rootScope.headerExtend	= true;
-
+	$scope.sideNav 	= false;
 /*
 	$scope.createForm	= {};
 	$scope.dashboards 	= {};
@@ -13,7 +13,8 @@ ventureApp.controller('dashboardListCtrl', function($scope, $rootScope, $sanitiz
 	})
 	
 	$scope.create = function() {
-		$scope.dashboardCreate = 'admin/dashboard/create.html';
+		$scope.sideNav = !$scope.sideNav;
+		//$scope.dashboardCreate = 'admin/dashboard/create.html';
 	}	
 	
 /*

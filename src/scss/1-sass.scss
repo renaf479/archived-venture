@@ -1,0 +1,101 @@
+/***** Units *****/
+$gridUnit: 8px;
+$gridToolbarPrimary: $gridUnit * 5;
+$gridToolbarSecondary: $gridUnit * 6;
+
+$gridZIndex: (
+	modal: 1000,
+	toolbarPrimary: 500,
+	toolbarSecondary: 400,
+	hover: 300
+);
+
+/***** Colors *****/
+$colorPrimary: #546e7a; /*600*/
+$colorPrimaryLight: #eceff1; /*50*/
+$colorPrimaryDark: #37474f; /*800*/
+
+$colorAccent: #ff3d00; /*A400*/
+$colorAccentLight: #ff6e40; /*A200*/
+$colorAccentDark: #dd2c00; /*A700*/
+
+$textColorPrimary: #ffffff;
+
+$windowBackground: #f9f9f9;
+$windowDivider: rgba(#000000, .12);
+
+/***** Extend *****/
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.shadow {
+	box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.25);
+}
+
+.hover {
+	cursor: pointer;
+}
+
+.inline {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.alignMiddle {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.transition {
+	transition: all 0.2s ease;
+}
+
+/***** Mixins *****/
+
+@mixin circle($radius, $color) {
+	background-color: $color;
+	border-radius: 50%;
+	width: $radius;
+	height: $radius;
+	display: block;
+}
+
+@mixin triangle($direction, $width, $height, $color) {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	@if $direction == up {
+		border-width: 0 $width/2 $height $width/2;
+		border-color: transparent transparent $color transparent;
+	} @else if $direction == down {
+		border-width: $height $width/2 0 $height;
+		border-color: $color transparent transparent transparent;
+	} @else if $direction == left {
+		border-width: $height/2 $width $height/2 0;
+		border-color: transparent $color transparent transparent;
+	} @else if $direction == right {
+		border-width: $height/2 0 $height/2 $width;
+		border-color: transparent transparent transparent $color;
+	}
+}
+
+@mixin shadow($direction, $opacity: .15) {
+	$color: #000;
+	@if $direction == up {
+		box-shadow: 0px -3px 5px 0px rgba($color, $opacity);
+	} @else if $direction == down {
+		box-shadow: 0px 3px 5px 0px rgba($color, $opacity);
+	} @else if $direction == left {
+		box-shadow: -3px 0px 5px 0px rgba($color, $opacity);
+	} @else if $direction == right {
+		box-shadow: 3px 0px 5px 0px rgba($color, $opacity);
+	} @else if $direction == all {
+		box-shadow: 0 0 5px rgba($color, $opacity);
+	}
+}

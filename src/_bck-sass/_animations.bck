@@ -1,4 +1,5 @@
 /***** ICONS *****/
+/*
 .tile {
 	transition: all .14s ease;
 }
@@ -10,3 +11,4 @@
 .transition-icon {
 	transition: all 0.3s ease;
 }
+*/

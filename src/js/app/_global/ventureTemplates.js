@@ -17,7 +17,7 @@ angular.module('ventureApp').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('admin/dashboard/list.html',
-    "<div data-ng-controller=dashboardListCtrl id=dashboards><header id=toolbar><div id=create-btn data-ng-click=create()></div><h2 id=title>Dashboards</h2></header><div id=list data-ng-class=\"{'extend': showForm}\"><div id=dashboard-{{dashboard.id}} class=tile data-ng-repeat=\"dashboard in dashboards\">{{dashboard.name}} <a data-ui-sref=\"dashboard.editor({id:'{{dashboard.id}}'})\">Link</a></div></div><div id=create data-ng-include=\"\" src=dashboardCreate></div></div>"
+    "<div data-ng-controller=dashboardListCtrl id=dashboards><div id=list data-ng-class=\"{'shrink': sideNav}\"><h2 class=title>Dashboards</h2><div id=dashboard-{{dashboard.id}} class=tile data-ng-repeat=\"dashboard in dashboards\">{{dashboard.name}} <a data-ui-sref=\"dashboard.editor({id:'{{dashboard.id}}'})\">Link</a></div></div><div id=create data-ng-class=\"{'extend': sideNav}\"><div id=create-btn data-ng-click=create()></div><div data-ng-show=sideNav><h2 class=title>Create</h2></div></div></div>"
   );
 
 
@@ -32,7 +32,7 @@ angular.module('ventureApp').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('platform/header.html',
-    "<header id=global-header data-ng-class=\"{'extend': headerExtend}\"><div class=container><a href=# class=logo>Venture</a> <div class=right data-ng-show=user.auth><div id=header-profile class=dropdown on-toggle=toggled(open)><div class=dropdown-toggle><img class=avatar data-ng-src={{user.user.content.avatar}}></div><ul class=dropdown-menu><li><a href=# class=transition data-ui-sref=admin.settings>Settings</a></li><li><a href=# class=transition data-ng-click=ventureLogout()>Sign Out</a></li></ul></div></div></div></header>"
+    "<header id=global-header data-ng-class=\"{'extend': headerExtend}\"><div class=container><a href=# class=logo>Venture</a><div class=right data-ng-show=user.auth><div id=profile class=dropdown on-toggle=toggled(open)><div class=dropdown-toggle><img class=avatar data-ng-src={{user.user.content.avatar}}></div><ul class=dropdown-menu><li><a href=# class=transition data-ui-sref=admin.settings>Settings</a></li><li><a href=# class=transition data-ng-click=ventureLogout()>Sign Out</a></li></ul></div></div></div></header>"
   );
 
 
