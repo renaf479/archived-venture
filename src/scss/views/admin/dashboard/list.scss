@@ -54,7 +54,7 @@
 			
 			.thumb {
 				@extend .hover;
-				width: 100%;
+				/* width: 100%; */
 			}
 			
 			.info {
@@ -143,6 +143,10 @@
 		.submit {
 			@extend .right;
 			@extend .clear;
+		}
+		
+		#createForm-private {
+			@include switch($gridUnit * 7, $gridUnit/2, $gridUnit * 3, $colorAccentLight, $colorAccentLight, $colorAccent, $colorPrimaryLight);
 		}
 	}
 }

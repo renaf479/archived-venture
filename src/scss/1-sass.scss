@@ -79,6 +79,82 @@ $windowDivider: rgba(#000000, .12);
 	line-height: $height;
 }
 
+@mixin switch($width, $height, $radius, $barColorLeft, $barColorRight, $circleColorOn, $colorColorOff) {
+	position: relative;
+	width: $width;
+	user-select: none;
+	
+	.checkbox {
+		display: none;
+		
+		&:checked + .switch-label .inner {
+			margin-left: 0;
+		}
+		
+		&:checked + .switch-label .switch {
+			right: $radius/2;
+		}
+		
+		&:not(:checked) + .switch-label .switch {
+			background-color: $colorColorOff;
+		}
+	}
+	
+	.switch-label {
+		display: block;
+		overflow: hidden;
+		cursor: pointer;
+		margin: 0;
+		
+		.inner {
+			display: block;
+			width: 200%;
+			margin-left: -100%;
+			transition: margin .3s ease-in 0s;
+			
+			&:before,
+			&:after {
+				display: block;
+				float: left;
+				width: 50%;
+				padding: 0;
+				color: #fff;
+				box-sizing: border-box;
+				
+				@include height($height);
+			}
+			
+			&:before {
+				content: '';
+				padding-left: 10px;
+				background-color: $barColorLeft;
+			}
+			
+			&:after {
+				content: '';
+				padding-right: 10px;
+				background-color: $barColorRight;
+			}
+		}
+		
+		.switch {
+			display: block;
+			width: $radius;
+			height: $radius;
+			margin: -$radius/2;
+			background: $circleColorOn;
+			border-radius: 50%;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: $width - $radius/2;
+			transition: all 0.3s ease-in 0s;
+			
+			@include shadow('all', .2);
+		}
+	}
+}
+
 @mixin triangle($direction, $width, $height, $color) {
 	width: 0;
 	height: 0;

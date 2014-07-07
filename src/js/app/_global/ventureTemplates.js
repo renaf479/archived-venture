@@ -12,7 +12,7 @@ angular.module('ventureApp').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('admin/dashboard/list.create.html',
-    "<h2 class=title>Create</h2><form id=create name=formCreate data-ng-submit=submit(formCreate.$invalid) novalidate><div class=form-group><label>Name</label><input placeholder=\"Give your Dashboard a name\" data-ng-model=createForm.name required></div><div class=form-group><label>Description</label><textarea placeholder=\"What is your Dashboard about?\" data-ng-model=createForm.description></textarea></div><button class=\"form-button cancel\">Cancel</button> <button type=submit class=\"form-button submit\" data-ng-disabled=formCreate.$invalid>Create Dashboard</button></form>"
+    "<h2 class=title>Create</h2><form id=create name=formCreate data-ng-submit=submit(formCreate.$invalid) novalidate><div class=form-group><label>Name</label><input placeholder=\"Give your Dashboard a name\" data-ng-model=createForm.name required></div><div class=form-group><label>Description</label><textarea placeholder=\"What is your Dashboard about?\" data-ng-model=createForm.description></textarea></div><form-switch id=createForm-private checked></form-switch><button class=\"form-button cancel\">Cancel</button> <button type=submit class=\"form-button submit\" data-ng-disabled=formCreate.$invalid>Create Dashboard</button></form>"
   );
 
 
@@ -48,6 +48,11 @@ angular.module('ventureApp').run(['$templateCache', function($templateCache) {
 
   $templateCache.put('platform/login.html',
     "<form id=login data-ng-submit=loginPost() data-ng-model=login data-ng-controller=loginController><label class=formLabel>Username or E-mail</label><input class=formInput placeholder=\"Username or E-mail\" data-ng-model=login.email><label class=formLabel>Password</label><input type=password class=formInput placeholder=Password data-ng-model=login.password><button type=submit class=formSubmit>Sign In</button></form>"
+  );
+
+
+  $templateCache.put('platform/switch.html',
+    "<div class=form-switch><input type=checkbox name=onoffswitch class=checkbox id=myonoffswitch checked><label class=switch-label for=myonoffswitch><span class=inner></span> <span class=switch></span></label></div>"
   );
 
 }]);
