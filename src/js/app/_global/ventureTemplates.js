@@ -6,18 +6,28 @@ angular.module('ventureApp').run(['$templateCache', function($templateCache) {
   );
 
 
-  $templateCache.put('admin/dashboard/create.html',
-    "create"
-  );
-
-
   $templateCache.put('admin/dashboard/editor.html',
     "editor"
   );
 
 
+  $templateCache.put('admin/dashboard/list.create.html',
+    "<h2 class=title>Create</h2><form id=create name=formCreate data-ng-submit=submit(formCreate.$invalid) novalidate><div class=form-group><label>Name</label><input placeholder=\"Give your Dashboard a name\" data-ng-model=createForm.name required></div><div class=form-group><label>Description</label><textarea placeholder=\"What is your Dashboard about?\" data-ng-model=createForm.description></textarea></div><button class=\"form-button cancel\">Cancel</button> <button type=submit class=\"form-button submit\" data-ng-disabled=formCreate.$invalid>Create Dashboard</button></form>"
+  );
+
+
   $templateCache.put('admin/dashboard/list.html',
-    "<div data-ng-controller=dashboardListCtrl id=dashboards><div id=list data-ng-class=\"{'shrink': sideNav}\"><h2 class=title>Dashboards</h2><div id=dashboard-{{dashboard.id}} class=tile data-ng-repeat=\"dashboard in dashboards\">{{dashboard.name}} <a data-ui-sref=\"dashboard.editor({id:'{{dashboard.id}}'})\">Link</a></div></div><div id=create data-ng-class=\"{'extend': sideNav}\"><div id=create-btn data-ng-click=create()></div><div data-ng-show=sideNav><h2 class=title>Create</h2></div></div></div>"
+    "<div data-ng-controller=dashboardListCtrl id=dashboards><div id=list data-ng-class=\"(dashboardSide.sideNav)? dashboardSide.sideNavClass: ''\"><h2 class=title>Dashboards</h2><dashboard-list-item data-ng-repeat=\"dashboard in dashboards\" class=tile id=dashboard-{{dashboard.id}}></dashboard-list-item></div><div id=sideNav data-ng-class=\"(dashboardSide.sideNav)? dashboardSide.sideNavClass: ''\"><div id=sideNav-btn data-ng-click=toggle()></div><div data-ng-include=dashboardSide.template></div></div></div>"
+  );
+
+
+  $templateCache.put('admin/dashboard/list.info.html',
+    "{{dashboardModify}}"
+  );
+
+
+  $templateCache.put('admin/dashboard/list.item.html',
+    "<div><img class=thumb data-ng-src=\"http://lorempixel.com/350/25{{dashboard.id}}/\"><div class=info><span>{{dashboard.name}}</span> <span class=\"menu icon-list2\" data-ng-click=info(dashboard)></span></div></div>"
   );
 
 

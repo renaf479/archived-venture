@@ -1,17 +1,19 @@
 <div data-ng-controller="dashboardListCtrl" id="dashboards">
-	<div id="list" data-ng-class="{'shrink': sideNav}">
+	<div id="list" data-ng-class="(dashboardSide.sideNav)? dashboardSide.sideNavClass: ''">
 		<h2 class="title">Dashboards</h2>
-	
+		<dashboard-list-item data-ng-repeat="dashboard in dashboards" class="tile" id="dashboard-{{dashboard.id}}"></dashboard-list-item>
+		
+		
+<!--
 		<div id="dashboard-{{dashboard.id}}" class="tile" data-ng-repeat="dashboard in dashboards">
 			{{dashboard.name}}
 			<a data-ui-sref="dashboard.editor({id:'{{dashboard.id}}'})">Link</a>
 		</div>	
+-->
 	</div>
 	
-	<div id="create" data-ng-class="{'extend': sideNav}">
-		<div id="create-btn" data-ng-click="create()"></div>
-		<div data-ng-show="sideNav">
-			<h2 class="title">Create</h2>
-		</div>
+	<div id="sideNav" data-ng-class="(dashboardSide.sideNav)? dashboardSide.sideNavClass: ''">
+		<div id="sideNav-btn" data-ng-click="toggle()"></div>
+		<div data-ng-include="dashboardSide.template"></div>
 	</div>
 </div>

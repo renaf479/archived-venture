@@ -11,9 +11,11 @@
 		@extend .shadow;
 		
 		width: 100%;
-		height: $gridToolbarSecondary;
-		line-height: $gridToolbarSecondary;
 		background-color: $colorPrimary;
+		font-size: 1.8em;
+		text-indent: $gridUnit * 5;
+		
+		@include height($gridToolbarSecondary);
 	}
 	
 	
@@ -26,21 +28,57 @@
 		height: 100%;
 		transition-duration: $duration;
 		
-		&.shrink {
-			width: 50%;
+		&.sideNav-create {
+			width: 70%;
+		}
+		
+		&.sideNav-info {
+			width: 30%;
 		}
 				
 		.tile {
 			@extend .inline;
+			@extend .transition;
 			
+			position: relative;
 			background-color: #fff;
-			width: 300px;
-			height: 150px;
-			margin: $gridUnit;
+			min-width: $gridUnit * 23;
+			width: calc(100%/4 - #{$gridUnit});
+			height: $gridUnit * 28;
+			margin: $gridUnit $gridUnit/2 0;
+			overflow: hidden;
+			
+			&:hover {
+				box-shadow: 0 0 $gridUnit*2 rgba(#000, .5);
+			}
+			
+			.thumb {
+				@extend .hover;
+				width: 100%;
+			}
+			
+			.info {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				background-color: rgba($colorPrimary, .9);
+				text-indent: $gridUnit * 2;
+				font-size: 1.3em;
+				
+				@include height($gridUnit * 6);
+				
+				.menu {
+					@extend .hover;
+					@extend .transition;
+					
+					position: absolute;
+					right: $gridUnit * 2;
+				}
+			}
 		}
 	}
 	
-	#create {
+	#sideNav {
 		@extend .left;
 		@extend .transition;
 		
@@ -48,14 +86,20 @@
 		height: 100%;
 		width: $createWidth;
 		transition-duration: $duration;
-		background-color: #fff;
+		background-color: $colorPrimaryLight;
 		
 		@include shadow('left');
 		
-		&.extend {
-			width: 50%;
-			
-			#create-btn {
+		&.sideNav-create {
+			width: 30%;
+		}
+		
+		&.sideNav-info {
+			width: 70%;
+		}
+		
+		&[class^='sideNav-'] {
+			#sideNav-btn {
 				transform-origin: center;
 				transform: rotate(45deg);
 			}
@@ -66,7 +110,7 @@
 			background-color: $colorAccentLight;
 		}
 		
-		#create-btn {
+		#sideNav-btn {
 			$radius: $gridUnit * 6;
 
 			@extend .hover;
@@ -75,6 +119,7 @@
 			left: -$radius/2;
 			top: 50%;
 			transform: translate(auto, -50%);
+			z-index: map-get($gridZIndex, top);
 			
 			@include circle($radius, $colorAccent);
 			@include shadow('all', .3);
@@ -88,5 +133,16 @@
 			}
 		}
 		
+	}
+	
+	#create {
+		color: $textColorInverse;
+		padding: $gridUnit * 2 $gridUnit * 6;
+		position: relative;
+		
+		.submit {
+			@extend .right;
+			@extend .clear;
+		}
 	}
 }

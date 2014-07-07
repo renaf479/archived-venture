@@ -5,9 +5,10 @@ $gridToolbarSecondary: $gridUnit * 6;
 
 $gridZIndex: (
 	modal: 1000,
+	top: 900,
 	toolbarPrimary: 500,
 	toolbarSecondary: 400,
-	hover: 300
+	bottom: 0
 );
 
 /***** Colors *****/
@@ -20,6 +21,7 @@ $colorAccentLight: #ff6e40; /*A200*/
 $colorAccentDark: #dd2c00; /*A700*/
 
 $textColorPrimary: #ffffff;
+$textColorInverse: #000;
 
 $windowBackground: #f9f9f9;
 $windowDivider: rgba(#000000, .12);
@@ -31,6 +33,12 @@ $windowDivider: rgba(#000000, .12);
 
 .right {
 	float: right;
+}
+
+.clear:after {
+	content: '';
+    display: table;
+    clear: both;
 }
 
 .shadow {
@@ -64,6 +72,11 @@ $windowDivider: rgba(#000000, .12);
 	width: $radius;
 	height: $radius;
 	display: block;
+}
+
+@mixin height($height) {
+	height: $height;
+	line-height: $height;
 }
 
 @mixin triangle($direction, $width, $height, $color) {

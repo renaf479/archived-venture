@@ -1,6 +1,11 @@
 ventureApp.controller('dashboardListCtrl', function($scope, $rootScope, $sanitize, $state, API) {
 	$rootScope.headerExtend	= true;
-	$scope.sideNav 	= false;
+	
+	$scope.createForm = {};
+	$scope.dashboardModify	= {};
+	$scope.dashboardSide 	= {
+		sideNav: false
+	};
 /*
 	$scope.createForm	= {};
 	$scope.dashboards 	= {};
@@ -12,10 +17,25 @@ ventureApp.controller('dashboardListCtrl', function($scope, $rootScope, $sanitiz
 		$scope.dashboards = data;
 	})
 	
-	$scope.create = function() {
-		$scope.sideNav = !$scope.sideNav;
-		//$scope.dashboardCreate = 'admin/dashboard/create.html';
-	}	
+	$scope.toggle = function() {
+		var sideNav		= !$scope.dashboardSide.sideNav,
+			template 	= (sideNav)? 'admin/dashboard/list.create.html': '';
+			
+		$scope.dashboardSide = {
+			sideNav: 		sideNav,
+			sideNavClass:	'sideNav-create',
+			template:		template
+		}
+	}
+	
+	$scope.info = function(model) {
+		$scope.dashboardModify = model;
+		$scope.dashboardSide = {
+			sideNav: 		true,
+			sideNavClass:	'sideNav-info',
+			template:		'admin/dashboard/list.info.html'
+		}
+	}
 	
 /*
 	$scope.toggle = function() {
